@@ -1,6 +1,8 @@
 # Github Auth Example
 
-This is a very minimal Next.js repo to show how you can authenticate to Github's OAuth server. Follow the instructions in this README to get set up and run this example locally.
+This is a very minimal Next.js repo to show how you can authenticate to Github's OAuth server. It is the companion repo for a blog article I am currently writing on OAuth - feel free to [check out my blog](https://www.danaciocan.com) if you are interested in all things software engineering!
+
+Follow the instructions in this README to get set up and run this example locally.
 
 ## Create a Github app
 
