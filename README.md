@@ -2,9 +2,13 @@
 
 This is a very minimal Next.js repo to show how you can authenticate to Github's OAuth server.
 
-## Creating a Github app
+## Create a Github app
 
 <add instructions>
+
+## Set up your `.env` file
+
+You'll need to update your `.env` file to get this 
 
 ## Running this example
 
