@@ -2,7 +2,7 @@
 
 /.next/
 
-.env*
+.env
 
 *.tsbuildinfo
 next-env.d.ts
