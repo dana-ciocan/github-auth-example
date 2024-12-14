@@ -23,7 +23,7 @@ export async function GET(request: NextRequest) {
 
     // Get the access token and display it so we can see that it worked
     const json = await response.json();
-    return new NextResponse(json.access_token);
+    return new NextResponse(`Access token: ${json.access_token}`);
   } catch (error) {
     console.error((error as Error)?.message);
   }
