@@ -5,6 +5,8 @@ export async function GET(request: NextRequest) {
   const code = request.nextUrl.searchParams.get('code')
 
   // Prepare the URL for the POST request
+  // Notice that this time we have to pass both our client ID _and_ our client secret
+  // As well as the code we were given in the first step
   const url = `https://github.com/login/oauth/access_token?client_id=${process.env.GITHUB_CLIENT_ID}&client_secret=${process.env.GITHUB_CLIENT_SECRET}&code=${code}`;
 
   try {
