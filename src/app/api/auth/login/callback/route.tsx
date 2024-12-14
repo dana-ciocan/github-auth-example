@@ -1,23 +1,27 @@
 import { type NextRequest, NextResponse } from 'next/server'
  
 export async function GET(request: NextRequest) {
-  const searchParams = request.nextUrl.searchParams
-  const code = searchParams.get('code')
+  // Get the value of the code query parameter from the URL
+  const code = request.nextUrl.searchParams.get('code')
 
-  const url = `https://github.com/login/oauth/access_token?client_id=${process.env.GITHUB_CLIENT_ID}&client_secret=${process.env.GITHUB_CLIENT_SECRET}&code=${code}&scope=user+repo`;
+  // Prepare the URL for the POST request
+  const url = `https://github.com/login/oauth/access_token?client_id=${process.env.GITHUB_CLIENT_ID}&client_secret=${process.env.GITHUB_CLIENT_SECRET}&code=${code}`;
 
-  console.log(url);
   try {
+    // Send a post request to the Github authorisation server
+    // This should return our access token 
+    // The Accept header is important here so we get JSON back
     const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          "Accept": "application/json",
-        },
+      method: 'POST',
+      headers: {
+        "Accept": "application/json",
+      },
     });
     if (!response.ok) {
       throw new Error(`Response status: ${response.status}`);
     }
 
+    // Get the access token and display it so we can see that it worked
     const json = await response.json();
     return new NextResponse(json.access_token);
   } catch (error) {
