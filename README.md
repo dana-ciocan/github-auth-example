@@ -54,15 +54,6 @@ Once you have cloned this repo and created your Github app, you'll want to:
 1. Click on the _Login with Github_ button that appears
 1. If you're not already logged into Github, you'll get sent to a login page, if you are, you'll get pinged straight back to our callback URL
 
-If you pay close attention to the URL in the address bar, you might spot the `?code=` query parameter during this process. It's pretty fast though, so don't worry if not!
+Notice the `?code=` query parameter in the callback URL. This is the first step in the authentication process - we send the user (in this case us, but in Production this would be the users of your app) off to log in and we get given a code. We then exchange this for an _access token_.
 
-## Seeing your access token
-
-During the login process, your access token will get saved to a cookie and you should be able to see it by doing the following (these instructions are for Chrome, your browser's instructions may vary slightly):
-
-1. Open Dev Tools
-1. Go to the _Application_ tab
-1. Open the _Cookies_ menu
-1. Go to http://localhost:3000
-
-You should see a cookie called `access_token` - this is what the authorisation server gave us in exchange for the `code` and is like our hotel key. It will give our app access to Github's APIs without us having to get the user to give us their password and open themselves up to the risk of having their password stolen.
+If everything worked, you should see the access token being displayed on the callback URL page - it'll start with `ghu_`. This is like our hotel key and is what would give us access to github repos and other useful information that we can use in our app!
